@@ -1,6 +1,19 @@
 # GitLab 安装及汉化
 
-> 源码安装 GitLab 步骤繁琐：需要安装依赖包，Mysql，Redis，Postfix，Ruby，Nginx……安装完毕还得一个个手动配置这些软件。源码安装容易出错，不顺利的话，一天都搞不定。源码最大的好处是私人定制，如果不做定制化，还是使用官方推荐的 omnibus packages 方式安装，网络好的话，一个小时内搞定。
+> 源码安装 GitLab 步骤繁琐：需要安装依赖包，Mysql，Redis，Postfix，Ruby，Nginx……安装完毕还得一个个手动配置这些软件。源码安装容易出错，不顺利的话，一天都搞不定。源码最大的好处是私人定制，如果不做定制化，还是使用官方推荐的 omnibus packages 方式安装，网络好的话，一个小时内可以搞定。
+> 
+
+<!-- TOC -->
+
+- [GitLab 安装及汉化](#gitlab)
+    - [安装](#)
+        - [1、添加安装源](#1)
+        - [2、安装依赖包](#2)
+        - [3、修改Hosts](#3-hosts)
+    - [汉化](#)
+        - [1、安装中文语言包（汉化）](#1)
+
+<!-- /TOC -->
 
 ## 安装
 
@@ -48,7 +61,9 @@ sudo gitlab-ctl reconfigure
 > 密码: 5iveL!fe
 
 
-### 4、安装中文语言包（汉化）
+## 汉化
+
+### 1、安装中文语言包（汉化）
 以下汉化步骤参考[此篇文章](https://larryli.cn/2015/07/644905)，首先确认当前安装版本
 ```
 cat /opt/gitlab/embedded/service/gitlab-rails/VERSION
@@ -75,4 +90,4 @@ sudo gitlab-ctl start
 ![](http://omdis1w10.bkt.clouddn.com/gitlab-zh.jpg)
 安装完成。
 
-### Support By Lonly
+[Support By Lonly](mailto:lonly197@gmail.com)

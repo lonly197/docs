@@ -3,13 +3,22 @@
 > 如果是生产环境，备份是必须的。需要备份的文件：配置文件和数据文件。
 > 
 
-### 备份配置文件
+<!-- TOC -->
+
+- [GitLab 备份与恢复](#gitlab)
+    - [备份配置文件](#)
+    - [备份数据文件](#)
+    - [恢复](#)
+
+<!-- /TOC -->
+
+## 备份配置文件
 配置文件含密码等敏感信息，不要和数据备份文件放在一起。
 ```
 sh -c 'umask 0077; tar -cf $(date "+etc-gitlab-%s.tar") -C /etc/gitlab'
 ```
 
-### 备份数据文件
+## 备份数据文件
 默认数据备份目录是/var/opt/gitlab/backups，手动创建备份文件：
 ```
 # Omnibus 方式安装使用以下命令备份
@@ -28,7 +37,7 @@ gitlab_rails['backup_keep_time'] = 604800
 gitlab_rails['backup_path'] = '/mnt/backups'
 ```
 
-### 恢复
+## 恢复
 恢复之前，确保备份文件所安装 GitLab 和当前要恢复的 GitLab 版本一致。首先，恢复配置文件：
 ```
 sudo mv /etc/gitlab /etc/gitlab.$(date +%s)
@@ -55,4 +64,4 @@ sudo gitlab-ctl start
 sudo gitlab-rake gitlab:check SANITIZE=true
 ```
 
-### Support By Lonly
+[Support By Lonly](mailto:lonly197@gmail.com)

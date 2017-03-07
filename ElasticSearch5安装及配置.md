@@ -1,15 +1,28 @@
 # ElasticSearch5安装及配置
 
 > 确保系统已经安装好jdk1.8.0_73以上，操作系统centos6以上
+> 
+<!-- TOC -->
 
-### 第一步：下载安装包并安装到指定位置
+- [ElasticSearch5安装及配置](#elasticsearch5)
+    - [第一步：下载安装包并安装到指定位置](#)
+    - [第二步：修改配置文件](#)
+    - [第三步：修改系统参数](#)
+    - [第四步：配置ES_HOME](#es_home)
+    - [第五步：添加启动用户，设置权限](#)
+    - [第六步：启动ES](#es)
+    - [第七步：集群部署](#)
+
+<!-- /TOC -->
+
+## 第一步：下载安装包并安装到指定位置
 已经将最新版本的安装包放到了/opt/package 目录下，下载是后执行语句：
 ```
 [root@hmly1 ~]# wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.tar.gz
 [root@hmly1 ~]# tar -zxvf elasticsearch-5.2.0.tar.gz -C /opt/package
 ```
 
-### 第二步：修改配置文件
+## 第二步：修改配置文件
 修改 /opt/package/elasticsearch-5.2.0/config/elasticsearch.yml
 ```
 # 这里指定的是集群名称，需要修改为对应的，开启了自发现功能后，ES会按照此集群名称进行集群发现
@@ -45,7 +58,7 @@ bootstrap.system_call_filter: false
 -Xmx8g
 ```
 
-### 第三步：修改系统参数
+## 第三步：修改系统参数
 
 > 确保系统有足够资源启动ES
 
@@ -76,7 +89,7 @@ vm.max_map_count=655360
 sealion    soft    nproc     65536
 ```
 
-### 第四步：配置ES_HOME
+## 第四步：配置ES_HOME
 由于es5.0依赖的是jdk8，所以需要下载jdk8并指定PAHT路径
 ```
 [root@hmly1 ~]# export PATH=/opt/package/jdk1.8.0_112/bin:$PATH
@@ -84,7 +97,7 @@ sealion    soft    nproc     65536
 [root@hmly1 ~]# export ES_HOME=/opt/package/elasticsearch-5.2.0
 ```
 
-### 第五步：添加启动用户，设置权限
+## 第五步：添加启动用户，设置权限
 线上集群默认是用sealion启动es，所以在启动前，需要创建sealion用户和用户组，并修改文件及目录权限
 ```
 [root@hmly1 ~]# groupadd sealion && useradd sealion -g sealion -d /home/sealion && passwd sealion
@@ -95,7 +108,7 @@ New password: datatub
 [root@hmly1 ~]# chown sealion. -R /cloud/data{1,2,3}/sealion/skynet_es_cluster/
 ```
 
-### 第六步：启动ES
+## 第六步：启动ES
 使用sealion用户启动elasticsearch服务
 ```
 [root@hmly1 ~]# su -c "cd /opt/package/elasticsearch-5.2.0/bin; ./elasticsearch -d" sealion
@@ -107,11 +120,11 @@ New password: datatub
 [root@hmly1 ~]# curl http://172.18.5.110:9200/
 ```
 
-### 第七步：集群部署
+## 第七步：集群部署
 复制elasticsearch-5.2.0到其它机器，修改相应的node.name、network.host以及discovery.zen.ping.unicast.hosts，
 ```
 [root@hmly1 package]# scp -r elasticsearch-5.2.0 root@172.18.5.111:/opt/package/
 ```
 其它步骤同上。
 
-### Support  By Lonly
+[Support By Lonly](mailto:lonly197@gmail.com)

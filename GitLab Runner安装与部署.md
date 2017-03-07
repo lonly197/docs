@@ -6,25 +6,24 @@
 <!-- TOC -->
 
 - [GitLab Runner安装与部署](#gitlab-runner)
-        - [1、添加 Runner 安装源](#1-runner)
-        - [2、安装gitlab-ci-multi-runner](#2-gitlab-ci-multi-runner)
-        - [3、注册 Runner。](#3-runner)
-        - [4、添加gitlab-ci.yml文件](#4-gitlab-ci-yml)
-        - [Support By Lonly](#support-by-lonly)
+    - [1、添加 Runner 安装源](#1-runner)
+    - [2、安装gitlab-ci-multi-runner](#2-gitlab-ci-multi-runner)
+    - [3、注册 Runner。](#3-runner)
+    - [4、添加gitlab-ci.yml文件](#4-gitlab-ci-yml)
 
 <!-- /TOC -->
 
-### 1、添加 Runner 安装源
+## 1、添加 Runner 安装源
 ```
 # curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.rpm.sh | sudo bash
 ```
 
-### 2、安装gitlab-ci-multi-runner
+## 2、安装gitlab-ci-multi-runner
 ```
 # sudo yum install gitlab-ci-multi-runner -y
 ```
 
-### 3、注册 Runner。
+## 3、注册 Runner。
 获取Token：以管理员身份登录GitLab，进入管理区域，点击侧边栏的Runner，如下图，“注册授权码”后的字符串便是Token。
 
 ![img](http://omdis1w10.bkt.clouddn.com/gitlab-ci-runner-token-setting.png)
@@ -61,11 +60,11 @@ Listing configured runners                          ConfigFile=/etc/gitlab-runne
 test-runner                                         Executor=shell Token=eae25e1b92d7c01bb5087255a8d50e URL=http://git.sw.com/
 ```
 
-### 4、添加gitlab-ci.yml文件
+## 4、添加gitlab-ci.yml文件
 配置好 Runner 之后，我们要做的事情就是在项目根目录中添加 .gitlab-ci.yml 文件了。当我们添加了 .gitlab-ci.yml 文件后，每次提交代码或者合并 MR 都会自动运行构建任务了。
 ![](http://omdis1w10.bkt.clouddn.com/gitlab-add-yml.png)
 
 
-### Support By Lonly
+[Support By Lonly](mailto:lonly197@gmail.com)
 
 
