@@ -321,6 +321,7 @@ failure_cleanup:
 * 编译(build)
 * 部署测试服务器(deploy_test)
 * 部署生产服务器(deploy_production)
+* 构建失败后的清理任务(failure_cleanup)
 
 设置 Job.only 后，只有当 develop 分支和 master 分支有提交的时候才会触发相关的 Jobs。
 > 注意，这里用 GitLab Runner 所在的服务器作为测试服务器(hmly8)。
