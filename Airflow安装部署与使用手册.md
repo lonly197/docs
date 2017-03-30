@@ -419,5 +419,5 @@ airflow backfill tutorial -s 2015-06-01 -e 2015-06-07
 开放调用接口，接口执行dag schedule 命令
 
 
-### 8.4. STP上的任务列表是否仍需反映状态
-不同步状态，直接使用Airflow WEB UI
+### 8.4. 如何在现有系统上的任务列表里反映任务状态
+不需同步状态，直接使用Airflow WEB UI
