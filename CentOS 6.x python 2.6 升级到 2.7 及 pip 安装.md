@@ -50,9 +50,9 @@ cd Python-2.7.13
 
 ./configure  --prefix=/usr/local --enable-shared --enable-loadable-sqlite-extensions --with-zlib
 ```
-* --prefix
+* --prefix 设定安装位置
 * --enable-loadable-sqlite-extensions 是sqlite的扩展
-* --with-zlib
+* --with-zlib 
 * --enable-shared
 
 > 若需要开启zlib功能，则需要vim ./Modules/Setup，找到#zlib zlibmodule.c -I$(prefix)/include -L$(exec_prefix)/lib -lz，去掉注释并保存，然后进行编译和安装。
@@ -80,6 +80,11 @@ ln -s /usr/local/bin/python2.7 /usr/bin/python
 **更改yum配置**
 ```
 vim /usr/bin/yum
+```
+将第一行的#!/usr/bin/python修改成#!/usr/bin/python2.6.6
+
+```
+vim /suer/bin/yum-config-manager
 ```
 将第一行的#!/usr/bin/python修改成#!/usr/bin/python2.6.6
 
