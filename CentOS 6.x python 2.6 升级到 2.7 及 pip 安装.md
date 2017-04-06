@@ -61,6 +61,12 @@ cd Python-2.7.13
 make && make altinstall
 ```
 
+**检查**
+```
+ls -ltr /usr/bin/python*
+echo $PATH
+```
+
 **备份**
 ```
 mv /usr/bin/python /usr/bin/python2.6.6
