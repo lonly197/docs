@@ -24,10 +24,8 @@ Python 2.6.6
 ## 2、依赖安装
 ```
 yum -y update
-yum install -y epel-release
-yum install -y sqlite-devel
-yum install -y zlib-devel.x86_64
-yum install -y openssl-devel.x86_64
+yum groupinstall "Development tools"
+yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel epel-release zlib-devel.x86_64 openssl-devel.x86_64
 ```
 
 ## 3、升级Python
@@ -36,33 +34,31 @@ yum install -y openssl-devel.x86_64
 
 **下载python**
 ```
+cd /opt/package/
+
 wget https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tar.xz
 ```
 
 **解压**
 ```
-unxz Python-2.7.10.tar.xz
-tar -vxf Python-2.7.13.tar
-```
-
-**进入目录**
-```
-cd Python-2.7.13
+tar -xf Python-2.7.13.tar.xz
 ```
 
 **编译安装**
 ```
-./configure --enable-shared --enable-loadable-sqlite-extensions --with-zlib
+cd Python-2.7.13
+
+./configure  --prefix=/usr/local --enable-shared --enable-loadable-sqlite-extensions --with-zlib
 ```
-其中--enable-loadable-sqlite-extensions是sqlite的扩展，如果需要使用的话则带上这个选项。
+* --prefix
+* --enable-loadable-sqlite-extensions 是sqlite的扩展
+* --with-zlib
+* --enable-shared
+
+> 若需要开启zlib功能，则需要vim ./Modules/Setup，找到#zlib zlibmodule.c -I$(prefix)/include -L$(exec_prefix)/lib -lz，去掉注释并保存，然后进行编译和安装。
 
 ```
-vi ./Modules/Setup
-```
-找到#zlib zlibmodule.c -I$(prefix)/include -L$(exec_prefix)/lib -lz去掉注释并保存，然后进行编译和安装
-
-```
-make && make install
+make && make altinstall
 ```
 
 **备份**
@@ -72,7 +68,7 @@ mv /usr/bin/python /usr/bin/python2.6.6
 
 **创建软连接**
 ```
-ln -s /usr/local/bin/python2.7/python /usr/bin/python
+ln -s /usr/local/bin/python2.7 /usr/bin/python
 ```
 
 **更改yum配置**
@@ -109,9 +105,9 @@ python get-pip.py
 whereis pip
 ```
 
-找到pip2.7的路径，为其创建软链作为系统默认的启动版本
+若查找不到pip2.7的路径，则为其手动创建软链作为系统默认的启动版本
 ```
-ln -s /usr/local/bin/python2.7/pip2.7 /usr/bin/pip
+ln -s /usr/local/bin/pip2.7 /usr/bin/pip
 ```
 
 至此，pip安装完毕。
