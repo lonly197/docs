@@ -85,3 +85,5 @@ Call<List<Repo>> repos = service.listRepos("octocat");
 * 支持Android
 * Java 8 Lambda的友好支持
 [Github](https://github.com/jdeferred/jdeferred)
+
+[Support By Lonly](mailto:lonly197@gmail.com)
