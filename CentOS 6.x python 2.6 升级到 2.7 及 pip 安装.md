@@ -105,7 +105,7 @@ python get-pip.py
 whereis pip
 ```
 
-若查找不到pip2.7的路径，则为其手动创建软链作为系统默认的启动版本
+找到pip2.7的路径，为其创建软链作为系统默认的启动版本
 ```
 ln -s /usr/local/bin/pip2.7 /usr/bin/pip
 ```
