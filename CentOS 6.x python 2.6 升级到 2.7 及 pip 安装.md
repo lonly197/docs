@@ -48,7 +48,7 @@ tar -xf Python-2.7.13.tar.xz
 ```
 cd Python-2.7.13
 
-./configure  --prefix=/usr/local --enable-shared --enable-loadable-sqlite-extensions --with-zlib
+./configure  --prefix=/usr/local --enable-shared --enable-loadable-sqlite-extensions --enable-optimizations --with-zlib
 ```
 * --prefix 设定安装位置
 * --enable-loadable-sqlite-extensions 是sqlite的扩展

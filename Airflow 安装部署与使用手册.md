@@ -1,5 +1,62 @@
 # Airflow安装部署与使用手册
 
+<!-- TOC -->
+
+- [Airflow安装部署与使用手册](#airflow)
+    - [1 Airflow 介绍](#1-airflow)
+        - [1.1 简介](#1-1)
+        - [1.2 特性](#1-2)
+        - [1.3 比较优势](#1-3)
+    - [2 Airflow 架构](#2-airflow)
+        - [2.1 本地模式](#2-1)
+        - [2.2 分布式架构](#2-2)
+    - [3 Airflow 基本感念](#3-airflow)
+        - [3.1 Operator](#3-1-operator)
+        - [3.2 Hooks](#3-2-hooks)
+        - [3.3 Tasks](#3-3-tasks)
+        - [3.4 Task instances](#3-4-task-instances)
+        - [3.5.Job](#3-5-job)
+        - [3.6 Connections](#3-6-connections)
+        - [3.7 Variables](#3-7-variables)
+        - [3.8 XComs](#3-8-xcoms)
+        - [3.9 Trigger Rules](#3-9-trigger-rules)
+        - [3.10 DAG分支](#3-10-dag)
+        - [3.11 Executor](#3-11-executor)
+    - [4 Airflow 系统表](#4-airflow)
+        - [4.1 connection 表:](#4-1-connection)
+        - [4.2 user 表 :](#4-2-user)
+        - [4.3 variable 表 :](#4-3-variable)
+        - [4.4 xcom 表:](#4-4-xcom)
+        - [4.5 dag 表:](#4-5-dag)
+        - [4.6 dag\_run 表:](#4-6-dag-_run)
+        - [4.7 task\_instance 表:](#4-7-task-_instance)
+    - [5 Airflow 命令介绍](#5-airflow)
+        - [5.1 初始化airflow meta db](#5-1-airflow-meta-db)
+        - [5.2 升级airflow meta db](#5-2-airflow-meta-db)
+        - [5.3 开启web server](#5-3-web-server)
+        - [5.4 显示task清单](#5-4-task)
+        - [5.5 检查Task状态](#5-5-task)
+        - [5.6 开启一个dag调度器](#5-6-dag)
+        - [5.7 立即触发一个dag, 可以为dag指定一个run id, 即dag的运行实例id.](#5-7-dag-dag-run-id-dag-id)
+        - [5.8 批量回溯触发一个dag](#5-8-dag)
+        - [5.9.手工调用一个Task](#5-9-task)
+        - [5.10.测试一个Task](#5-10-task)
+        - [5.11.清空dag下的Task运行实例](#5-11-dag-task)
+        - [5.12.显示airflow的版本号](#5-12-airflow)
+    - [6 Airflow 安装配置](#6-airflow)
+        - [6.1 环境](#6-1)
+        - [6.2 安装步骤](#6-2)
+    - [7 Airflow 开发](#7-airflow)
+        - [7.1 Dag脚本开发](#7-1-dag)
+        - [7.2 Dag运行测试](#7-2-dag)
+    - [8. 与现有系统集成相关问题](#8)
+        - [8.1 如何在现有系统上定义一个dag](#8-1-dag)
+        - [8.2. 如何上传DAG文件到AirHome/dags目录](#8-2-dag-airhome-dags)
+        - [8.3. 怎样触发DAG 运行](#8-3-dag)
+        - [8.4. 如何在现有系统上的任务列表里反映任务状态](#8-4)
+
+<!-- /TOC -->
+
 ## 1 Airflow 介绍
 ### 1.1 简介
 
@@ -49,7 +106,7 @@ airflow 总体都不错, 有实用的UI, 丰富的cli工具, Task上下游使用
 基本可以理解为一个抽象化的task, Operator加上必要的运行时上下文就是一个task. 有三类Operator:
 
 * Sensor(传感监控器), 监控一个事件的发生。
-* Trigger(或者叫做Remote Excution), 执行某个远端动作, (我在代码中没有找到这个类别)。
+* Trigger(或者叫做Remote Excution), 执行某个远端动作。
 * Data transfer(数据转换器), 完成数据转换。
 
 ### 3.2 Hooks
@@ -421,3 +478,6 @@ airflow backfill tutorial -s 2015-06-01 -e 2015-06-07
 
 ### 8.4. 如何在现有系统上的任务列表里反映任务状态
 不需同步状态，直接使用Airflow WEB UI
+
+
+[Support By Lonly](mailto:lonly197@gmail.com)

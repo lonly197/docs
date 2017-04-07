@@ -36,6 +36,7 @@
         - [Permission denied 问题](#permission-denied)
         - [NPM INSTALL 过程慢](#npm-install)
         - [gitlab-runner 删除失败](#gitlab-runner)
+        - [git 错误: Unable to find remote helper for 'https'](#git-unable-to-find-remote-helper-for-https)
 
 <!-- /TOC -->
 
@@ -340,6 +341,10 @@ sudo usermod -a -G root gitlab-runner
 或者授权使用 sudo 命令：
 ```
 $ sudo visudo
+# 注释Defaults requiretty, 表示不需要控制终端。否则会出现sudo: sorry, you must have a tty to run sudo
+
+# 增加行 Defaults visiblepw, 否则会出现 sudo: no tty present and no askpass program specified
+
 # 在文件底部添加
 gitlab-runner ALL=(ALL) NOPASSWD: ALL
 ```
@@ -370,5 +375,28 @@ gitlab-runner restart
 ```
 vim /etc/gitlab-runner/config.toml
 ```
+
+### git 错误: Unable to find remote helper for 'https'
+
+这是由于 /usr/libexec/git-core/ 路径没在 PATH 环境变量中导致的。我们可以检查一下是否存在git-core：
+```
+ls /usr/libexec/git-core/
+echo $PATH
+```
+
+设置PATH
+```
+vim /etc/profile
+
+# 在文件底部添加，保存退出
+if [ -d "/usr/libexec/git-core" ] ; then
+    PATH="/usr/libexec/git-core:$PATH"
+fi
+
+# 确保修改起效
+source /etc/profile
+echo $PATH
+```
+
 
 [Support By Lonly](mailto:lonly197@gmail.com)
