@@ -34,7 +34,7 @@ Running in system-mode.
                                                    
 Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):
 # 输入gitlab-ci coordinator URL
-http://git.sw.com/
+http://git.sw.com/ci
 Please enter the gitlab-ci token for this runner:
 # 输入Token
 NgwTB6Nc4_LdKhsxQPAG
