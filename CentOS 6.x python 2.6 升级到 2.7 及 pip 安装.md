@@ -24,7 +24,7 @@ Python 2.6.6
 ## 2、依赖安装
 ```
 yum -y update
-yum groupinstall "Development tools"
+yum groupinstall "Development tools" -y
 yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel epel-release zlib-devel.x86_64 openssl-devel.x86_64
 ```
 
