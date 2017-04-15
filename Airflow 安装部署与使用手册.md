@@ -2,58 +2,58 @@
 
 <!-- TOC -->
 
-- [Airflow安装部署与使用手册](#airflow)
-    - [1 Airflow 介绍](#1-airflow)
-        - [1.1 简介](#1-1)
-        - [1.2 特性](#1-2)
-        - [1.3 比较优势](#1-3)
-    - [2 Airflow 架构](#2-airflow)
-        - [2.1 本地模式](#2-1)
-        - [2.2 分布式架构](#2-2)
-    - [3 Airflow 基本感念](#3-airflow)
-        - [3.1 Operator](#3-1-operator)
-        - [3.2 Hooks](#3-2-hooks)
-        - [3.3 Tasks](#3-3-tasks)
-        - [3.4 Task instances](#3-4-task-instances)
-        - [3.5.Job](#3-5-job)
-        - [3.6 Connections](#3-6-connections)
-        - [3.7 Variables](#3-7-variables)
-        - [3.8 XComs](#3-8-xcoms)
-        - [3.9 Trigger Rules](#3-9-trigger-rules)
-        - [3.10 DAG分支](#3-10-dag)
-        - [3.11 Executor](#3-11-executor)
-    - [4 Airflow 系统表](#4-airflow)
-        - [4.1 connection 表:](#4-1-connection)
-        - [4.2 user 表 :](#4-2-user)
-        - [4.3 variable 表 :](#4-3-variable)
-        - [4.4 xcom 表:](#4-4-xcom)
-        - [4.5 dag 表:](#4-5-dag)
-        - [4.6 dag\_run 表:](#4-6-dag-_run)
-        - [4.7 task\_instance 表:](#4-7-task-_instance)
-    - [5 Airflow 命令介绍](#5-airflow)
-        - [5.1 初始化airflow meta db](#5-1-airflow-meta-db)
-        - [5.2 升级airflow meta db](#5-2-airflow-meta-db)
-        - [5.3 开启web server](#5-3-web-server)
-        - [5.4 显示task清单](#5-4-task)
-        - [5.5 检查Task状态](#5-5-task)
-        - [5.6 开启一个dag调度器](#5-6-dag)
-        - [5.7 立即触发一个dag, 可以为dag指定一个run id, 即dag的运行实例id.](#5-7-dag-dag-run-id-dag-id)
-        - [5.8 批量回溯触发一个dag](#5-8-dag)
-        - [5.9.手工调用一个Task](#5-9-task)
-        - [5.10.测试一个Task](#5-10-task)
-        - [5.11.清空dag下的Task运行实例](#5-11-dag-task)
-        - [5.12.显示airflow的版本号](#5-12-airflow)
-    - [6 Airflow 安装配置](#6-airflow)
-        - [6.1 环境](#6-1)
-        - [6.2 安装步骤](#6-2)
-    - [7 Airflow 开发](#7-airflow)
-        - [7.1 Dag脚本开发](#7-1-dag)
-        - [7.2 Dag运行测试](#7-2-dag)
-    - [8. 与现有系统集成相关问题](#8)
-        - [8.1 如何在现有系统上定义一个dag](#8-1-dag)
-        - [8.2. 如何上传DAG文件到AirHome/dags目录](#8-2-dag-airhome-dags)
-        - [8.3. 怎样触发DAG 运行](#8-3-dag)
-        - [8.4. 如何在现有系统上的任务列表里反映任务状态](#8-4)
+- [Airflow安装部署与使用手册](#airflow安装部署与使用手册)
+    - [1 Airflow 介绍](#1-airflow-介绍)
+        - [1.1 简介](#11-简介)
+        - [1.2 特性](#12-特性)
+        - [1.3 比较优势](#13-比较优势)
+    - [2 Airflow 架构](#2-airflow-架构)
+        - [2.1 本地模式](#21-本地模式)
+        - [2.2 分布式架构](#22-分布式架构)
+    - [3 Airflow 基本感念](#3-airflow-基本感念)
+        - [3.1 Operator](#31-operator)
+        - [3.2 Hooks](#32-hooks)
+        - [3.3 Tasks](#33-tasks)
+        - [3.4 Task instances](#34-task-instances)
+        - [3.5.Job](#35job)
+        - [3.6 Connections](#36-connections)
+        - [3.7 Variables](#37-variables)
+        - [3.8 XComs](#38-xcoms)
+        - [3.9 Trigger Rules](#39-trigger-rules)
+        - [3.10 DAG分支](#310-dag分支)
+        - [3.11 Executor](#311-executor)
+    - [4 Airflow 系统表](#4-airflow-系统表)
+        - [4.1 connection 表:](#41-connection-表)
+        - [4.2 user 表 :](#42-user-表-)
+        - [4.3 variable 表 :](#43-variable-表-)
+        - [4.4 xcom 表:](#44-xcom-表)
+        - [4.5 dag 表:](#45-dag-表)
+        - [4.6 dag_run 表:](#46-dag_run-表)
+        - [4.7 task_instance 表:](#47-task_instance-表)
+    - [5 Airflow 命令介绍](#5-airflow-命令介绍)
+        - [5.1 初始化airflow meta db](#51-初始化airflow-meta-db)
+        - [5.2 升级airflow meta db](#52-升级airflow-meta-db)
+        - [5.3 开启web server](#53-开启web-server)
+        - [5.4 显示task清单](#54-显示task清单)
+        - [5.5 检查Task状态](#55-检查task状态)
+        - [5.6 开启一个dag调度器](#56-开启一个dag调度器)
+        - [5.7 立即触发一个dag, 可以为dag指定一个run id, 即dag的运行实例id.](#57-立即触发一个dag-可以为dag指定一个run-id-即dag的运行实例id)
+        - [5.8 批量回溯触发一个dag](#58-批量回溯触发一个dag)
+        - [5.9.手工调用一个Task](#59手工调用一个task)
+        - [5.10.测试一个Task](#510测试一个task)
+        - [5.11.清空dag下的Task运行实例](#511清空dag下的task运行实例)
+        - [5.12.显示airflow的版本号](#512显示airflow的版本号)
+    - [6 Airflow 安装配置](#6-airflow-安装配置)
+        - [6.1 环境](#61-环境)
+        - [6.2 安装步骤](#62-安装步骤)
+    - [7 Airflow 开发](#7-airflow-开发)
+        - [7.1 Dag脚本开发](#71-dag脚本开发)
+        - [7.2 Dag运行测试](#72-dag运行测试)
+    - [8. 与现有系统集成相关问题](#8-与现有系统集成相关问题)
+        - [8.1 如何在现有系统上定义一个dag](#81-如何在现有系统上定义一个dag)
+        - [8.2. 如何上传DAG文件到AirHome/dags目录](#82-如何上传dag文件到airhomedags目录)
+        - [8.3. 怎样触发DAG 运行](#83-怎样触发dag-运行)
+        - [8.4. 如何在现有系统上的任务列表里反映任务状态](#84-如何在现有系统上的任务列表里反映任务状态)
 
 <!-- /TOC -->
 
@@ -113,7 +113,7 @@ airflow 总体都不错, 有实用的UI, 丰富的cli工具, Task上下游使用
 
 Hook是airflow与外部平台/数据库交互的方式, 一个Hook类就像是一个JDBC driver一样. airflow已经实现了jdbc/ftp/http/webhdfs很多hook. 要访问RDBMS数据库 有两类Hook可供选择, 基于原生Python DBAPI的Hook和基于JDBC的Hook, 以Oracle为例,
 
-* OracleHook, 是通过cx\_Oracle 访问Oracle数据, 即原生Python binding, 有些原生的Hook支持Bulk load。
+* OracleHook, 是通过cx_Oracle 访问Oracle数据, 即原生Python binding, 有些原生的Hook支持Bulk load。
 * JdbcHook, 是通过jaydebeapi+Oracle JDBC访问Oracle数据
 
 ### 3.3 Tasks
@@ -130,35 +130,35 @@ Airflow中Job很少提及, 但在数据库中有个job表, 需要说明的是Job
 
 ### 3.6 Connections
 
-我们的Task需要通过Hook访问其他资源, Hook仅仅是一种访问方式, 就像是JDBC driver一样, 要连接DB, 我们还需要DB的IP/Port/User/Pwd等信息. 这些信息不太适合hard code在每个task中, 可以把它们定义成Connection, airflow将这些connection信息存放在后台的connection表中. 我们可以在WebUI的Admin-&gt;Connections管理这些连接.
+我们的Task需要通过Hook访问其他资源, Hook仅仅是一种访问方式, 就像是JDBC driver一样, 要连接DB, 我们还需要DB的IP/Port/User/Pwd等信息. 这些信息不太适合hard code在每个task中, 可以把它们定义成Connection, airflow将这些connection信息存放在后台的connection表中. 我们可以在WebUI的Admin->Connections管理这些连接.
 
 ### 3.7 Variables
 
-Variable 没有task\_id/dag\_id属性, 往往用来定义一些系统级的常量或变量,  我们可以在WebUI或代码中新建/更新/删除Variable. 也可以在WebUI上维护变量.
+Variable 没有task_id/dag_id属性, 往往用来定义一些系统级的常量或变量,  我们可以在WebUI或代码中新建/更新/删除Variable. 也可以在WebUI上维护变量.
 
 Variable 的另一个重要的用途是, 我们为Prod/Dev环境做不同的设置
 
 ### 3.8 XComs
 
-XCom和Variable类似, 用于Task之间共享一些信息. XCom 包含task\_id/dag\_id属性, 适合于Task之间传递数据, XCom使用方法比Variables复杂些. 比如有一个dag, 两个task组成(T1-&gt;T2), 可以在T1中使用xcom\_push()来推送一个kv, 在T2中使用xcom\_pull()来获取这个kv.
+XCom和Variable类似, 用于Task之间共享一些信息. XCom 包含task_id/dag_id属性, 适合于Task之间传递数据, XCom使用方法比Variables复杂些. 比如有一个dag, 两个task组成(T1->T2), 可以在T1中使用xcom_push()来推送一个kv, 在T2中使用xcom_pull()来获取这个kv.
 
 ### 3.9 Trigger Rules
 
 可以为dag中的每个task都指定它的触发条件, 这里的触发条件有两个维度, 以T1;T2>T3 这样的dag为例:
 
-一个维度是: 要根据dag上次运行T3的状态确定本次T3是否被调用, 由DAG的default\_args.depends\_on\_past参数控制, 为True时, 只有上次T3运行成功, 这次T3才会被触发
+一个维度是: 要根据dag上次运行T3的状态确定本次T3是否被调用, 由DAG的default_args.depends_on_past参数控制, 为True时, 只有上次T3运行成功, 这次T3才会被触发
 
-另一个维度是: 要根据前置T1和T2的状态确定本次T3是否被调用, 由T3.trigger\_rule参数控制, 有下面6种情形, 缺省是all\_success.
+另一个维度是: 要根据前置T1和T2的状态确定本次T3是否被调用, 由T3.trigger_rule参数控制, 有下面6种情形, 缺省是all_success.
 
-* all\_success: (default) all parents have succeeded
+* all_success: (default) all parents have succeeded
 
-* all\_failed: all parents are in a failed or upstream\_failed state
+* all_failed: all parents are in a failed or upstream_failed state
 
-* all\_done: all parents are done with their execution
+* all_done: all parents are done with their execution
 
-* one\_failed: fires as soon as at least one parent has failed, it does not wait for all parents to be done
+* one_failed: fires as soon as at least one parent has failed, it does not wait for all parents to be done
 
-* one\_success: fires as soon as at least one parent succeeds, it does not wait for all parents to be done
+* one_success: fires as soon as at least one parent succeeds, it does not wait for all parents to be done
 
 * dummy: dependencies are just for show, trigger at will
 
@@ -179,9 +179,9 @@ BranchPythonOperator, 用来实现Case分支. Task需要基于BranchPythonOperat
 
 ### 4.1 connection 表:
 
-我们的Task往往需要通过jdbc/ftp/http/webhdfs方式访问其他资源, 一般地访问资源时候都需要一些签证, airflow允许我们将这些connection以及鉴证存放在connection表中.可以现在WebUI的Admin-&gt;Connections管理这些连接, 在代码中使用这些连接.
+我们的Task往往需要通过jdbc/ftp/http/webhdfs方式访问其他资源, 一般地访问资源时候都需要一些签证, airflow允许我们将这些connection以及鉴证存放在connection表中.可以现在WebUI的Admin->Connections管理这些连接, 在代码中使用这些连接.
 
-需要说明的是, connection表有2个id栏位, 一个是id, 一个是conn\_id, id栏位是该表的PK, conn\_id栏位是connection的名义id, 也就是说我们可以定义多个同名的conn\_id, 当使用使用时airflow将会从同名的conn\_id的列表中随机选一个, 有点基本的load balance的意思.
+需要说明的是, connection表有2个id栏位, 一个是id, 一个是conn_id, id栏位是该表的PK, conn_id栏位是connection的名义id, 也就是说我们可以定义多个同名的conn_id, 当使用使用时airflow将会从同名的conn_id的列表中随机选一个, 有点基本的load balance的意思.
 
 ### 4.2 user 表 :
 
@@ -197,29 +197,29 @@ BranchPythonOperator, 用来实现Case分支. Task需要基于BranchPythonOperat
 
 ### 4.5 dag 表:
 
-包含dag的定义信息, dag\_id是PK(字符型)
+包含dag的定义信息, dag_id是PK(字符型)
 
-### 4.6 dag\_run 表:
+### 4.6 dag_run 表:
 
-包含dag的运行历史记录, 该表也有两个id栏位, 一个是id, 一个是run\_id, id栏位是该表的PK, run\_id栏位是这次运行的一个名字(字符型), 同一个dag, 它的run\_id 不能重复.
+包含dag的运行历史记录, 该表也有两个id栏位, 一个是id, 一个是run_id, id栏位是该表的PK, run_id栏位是这次运行的一个名字(字符型), 同一个dag, 它的run_id 不能重复.
 
 物理PK: 即id栏位
 
-逻辑PK: dag\_id + execution\_date 组合
+逻辑PK: dag_id + execution_date 组合
 
-execution\_date 栏位, 表示触发dag的准确时间
+execution_date 栏位, 表示触发dag的准确时间
 
 > 注意: 没有 task 表: airflow的task定义在python源码中, 不在DB中存放注册信息.
 
-### 4.7 task\_instance 表:
+### 4.7 task_instance 表:
 
 物理PK: 该表没有物理PK
 
-逻辑PK: dag\_id + task\_id + execution\_date 组合.
+逻辑PK: dag_id + task_id + execution_date 组合.
 
-execution\_date 栏位, 表示触发dag的准确时间,是datetime类型字段
+execution_date 栏位, 表示触发dag的准确时间,是datetime类型字段
 
-start\_date/end\_date 栏位,表示执行task的起始/终止时间, 也是datetime类型字段
+start_date/end_date 栏位,表示执行task的起始/终止时间, 也是datetime类型字段
 
 job 表: 包含job(这里可以理解为批次)的运行状态信息
 
@@ -241,15 +241,15 @@ airflow webserver  --debug=False
 
 ### 5.4 显示task清单
 ```
-airflow list\_tasks --tree=True -sd=/home/docs/airflow/dags
+airflow list_tasks --tree=True -sd=/home/docs/airflow/dags
 ```
 以Tree形式, 显示/home/docs/airflow/dags下的task 清单
 
 ### 5.5 检查Task状态
 ```
-airflow task\_state  -sd=/home/docs/airflow/dags dag\_id task\_id execution\_date
+airflow task_state  -sd=/home/docs/airflow/dags dag_id task_id execution_date
 ```
-这里的 execution\_date 是触发dag的准确时间, 是DB的datetime类型, 而不是Date类型
+这里的 execution_date 是触发dag的准确时间, 是DB的datetime类型, 而不是Date类型
 
 
 ### 5.6 开启一个dag调度器
@@ -258,51 +258,51 @@ airflow scchedule dagId
 
 启动dag调度器, 注意启动调度器, 并不意味着dag会被马上触发, dag触发需要符合它自己的schedule规则.
 
-参数NUM\_RUNS, 如果指定的话, dag将在运行NUM\_RUNS次后退出. 没有指定时, scheduler将一直运行.
+参数NUM_RUNS, 如果指定的话, dag将在运行NUM_RUNS次后退出. 没有指定时, scheduler将一直运行.
 
-参数DAG\_ID可以设定, 也可以缺省, 含义分别是:
+参数DAG_ID可以设定, 也可以缺省, 含义分别是:
 
-如果设定了DAG\_ID, 则为该DAG\_ID专门启动一个scheduler;
+如果设定了DAG_ID, 则为该DAG_ID专门启动一个scheduler;
 
-如果缺省DAG\_ID, airflow会为每个dag(subdag除外)都启动一个scheduler.
+如果缺省DAG_ID, airflow会为每个dag(subdag除外)都启动一个scheduler.
 
 
 ### 5.7 立即触发一个dag, 可以为dag指定一个run id, 即dag的运行实例id.
 
-airflow trigger\_dag [-h] [-r RUN\_ID] dag\_id
+airflow trigger_dag [-h] [-r RUN_ID] dag_id
 
 立即触发运行一个dag, 如果该dag的scheduler没有运行的话, 将在scheduler启动后立即执行dag
 
 
 ### 5.8 批量回溯触发一个dag
 
-airflow backfill [-s START\_DATE] [-e END\_DATE]  [-sd SUBDIR]  --mark\_success=False --dry\_run=False dag\_id
+airflow backfill [-s START_DATE] [-e END_DATE]  [-sd SUBDIR]  --mark_success=False --dry_run=False dag_id
 
-有时候我们需要\*\*立即\*\*批量补跑一批dag, 比如为demo准备点执行历史, 比如补跑错过的运行机会. DB中dag execute\_date记录不是当下时间, 而是按照 START\_DATE 和 scheduler\_interval 推算出的时间.
+有时候我们需要\*\*立即\*\*批量补跑一批dag, 比如为demo准备点执行历史, 比如补跑错过的运行机会. DB中dag execute_date记录不是当下时间, 而是按照 START_DATE 和 scheduler_interval 推算出的时间.
 
-如果缺省了END\_DATE参数, END\_DATE等同于START\_DATE.
+如果缺省了END_DATE参数, END_DATE等同于START_DATE.
 
 
 ### 5.9.手工调用一个Task
 
-airflow run [-sd SUBDIR] [-s TASK\_START\_DATE] --mark\_success=False  dag\_id task\_id execution\_date
+airflow run [-sd SUBDIR] [-s TASK_START_DATE] --mark_success=False  dag_id task_id execution_date
 
 该命令参数很多, 如果仅仅是测试运行, 建议使用test命令代替.
 
 
 ### 5.10.测试一个Task
 ```
-airflow test -sd=/home/docs/airflow/dags --dry\_run=False dag\_id task\_id execution\_date
+airflow test -sd=/home/docs/airflow/dags --dry_run=False dag_id task_id execution_date
 
-airflow test -sd=/home/docs/airflow/dags --dry\_run=False dag\_id task\_id 2015-12-31
+airflow test -sd=/home/docs/airflow/dags --dry_run=False dag_id task_id 2015-12-31
 
-以 test 或 dry\_run 模式 运行作业.
+以 test 或 dry_run 模式 运行作业.
 ```
 
 
 ### 5.11.清空dag下的Task运行实例
 ```
-airflow clear [-s START\_DATE] [-e END\_DATE]  [-sd SUBDIR]  dag\_id
+airflow clear [-s START_DATE] [-e END_DATE]  [-sd SUBDIR]  dag_id
 ```
 
 
@@ -335,7 +335,7 @@ make install
 2)设置环境变量使用新版本python（linux存在旧版本）
 cd ~
 ls -a
-vi .bash\_profile
+vi .bash_profile
 PATH=$PATH:$HOME/bin
 export PATH=/root/Python-2.7.11:$PATH
 
@@ -354,8 +354,8 @@ python setup.py install
 
 
 5)修改环境变量
-vi .bash\_profile
-export AIRFLOW\_HOME=/data/airflow
+vi .bash_profile
+export AIRFLOW_HOME=/data/airflow
 
 
 6)安装airflows
@@ -370,19 +370,19 @@ pip install airflow[mysql]
 8)修改本地模式
 
 #airflow数据目录
-airflow\_home = /data/airflow
+airflow_home = /data/airflow
 
 #dag查找目录
-dags\_folder = /data/airflow/dags
+dags_folder = /data/airflow/dags
 
 #设置为本地模式
 executor = LocalExecutor
 
 #元数据存储地址 (mysql)
-sql\_alchemy\_conn = mysql://root:root@192.1.1.111:3306/airflow
+sql_alchemy_conn = mysql://root:root@192.1.1.111:3306/airflow
 
 #不加载例子
-load\_examples = false
+load_examples = false
 
 
 9)初始化db
@@ -394,11 +394,11 @@ airflow webserver -p 8080
 
 
 11)启动 scheduler
-airflow scheduler &amp;
+airflow scheduler -p;
 
 
 12)停止scheduler
-ps -ef | grep &#39;/bin/airflow scheduler&#39; | awk &#39;{print $2}&#39; | xargs -i kill -9 {}
+ps -ef | grep /bin/airflow scheduler | awk {print $2} | xargs -i kill -9 {}
 ```
 
 
@@ -406,11 +406,11 @@ ps -ef | grep &#39;/bin/airflow scheduler&#39; | awk &#39;{print $2}&#39; | xarg
 
 ### 7.1 Dag脚本开发
 
-dag脚本可参考example\_dags目录中的sample, 然后将脚本存放到airflow.cfg指定的dags\_folder下.
+dag脚本可参考example_dags目录中的sample, 然后将脚本存放到airflow.cfg指定的dags_folder下.
 
 airflow 已经包含实现很多常用的 operator, 包括 BashOperator/EmailOperator/JdbcOperator/PythonOperator/ShortCircuitOperator/BranchPythonOperator/TriggerDagRunOperator等, 基本上够用了, 如果要实现自己的Operator, 继承BaseOperator, 一般只需要实现execute()方法即可. execute()约定没有返回值, 如果execute()中抛出了异常, airflow则会认为该task失败.
 
-pre\_execute()/post\_execute()用处不大, 不用特别关注, 另外post\_execute()是在on\_failure\_callback/on\_success\_callback回调函数之前执行的, 所以, 也不适合回写作业状态.
+pre_execute()/post_execute()用处不大, 不用特别关注, 另外post_execute()是在on_failure_callback/on_success_callback回调函数之前执行的, 所以, 也不适合回写作业状态.
 
 作业流程串接的几个小贴士:
 
@@ -422,13 +422,13 @@ pre\_execute()/post\_execute()用处不大, 不用特别关注, 另外post\_exec
 
 -  使用 TriggerDagRunOperator  直接trigger 另一个dag
 
--  T\_B.set\_upstream(T\_A), T\_A-&gt;T\_B, 通过task对象设置它的上游
+-  T_B.set_upstream(T_A), T_A->T_B, 通过task对象设置它的上游
 
--  T\_1.set\_downstream(T\_2), T\_1-&gt;T\_2 , 通过task对象设置它的下游
+-  T_1.set_downstream(T_2), T_1->T_2 , 通过task对象设置它的下游
 
--  airflow.utils.chain(T\_1, T\_2, T\_3), 通过task对象设置依赖关系, 这个方法就能一次设置长的执行流程, T\_1-&gt;T\_2-&gt;T\_3
+-  airflow.utils.chain(T_1, T_2, T_3), 通过task对象设置依赖关系, 这个方法就能一次设置长的执行流程, T_1->T_2->T_3
 
--  dag.set\_dependency(&#39;T\_1\_id&#39;, &#39;T\_2\_id&#39;), 通过id设置依赖关系
+-  dag.set_dependency('T_1_id', 'T_2_id'), 通过id设置依赖关系
 
 
 
@@ -441,20 +441,20 @@ python ~/airflow/dags/tutorial.py
 
 2)通过命令行验证DAG/task设置
 # print the list of active DAGs
-airflow list\_dags
+airflow list_dags
 
-# prints the list of tasks the &quot;tutorial&quot; dag\_id
-airflow list\_tasks tutorial
+# prints the list of tasks the &quot;tutorial&quot; dag_id
+airflow list_tasks tutorial
 
 # prints the hierarchy of tasks in the tutorial DAG
-airflow list\_tasks tutorial --tree
+airflow list_tasks tutorial --tree
 
 
 3)通过test命令行试跑一下, 测试一下code逻辑
-airflow test tutorial my\_task\_id 2015-06-01
+airflow test tutorial my_task_id 2015-06-01
 
 
-4)通过 backfill --mark\_success=True
+4)通过 backfill --mark_success=True
 airflow backfill tutorial -s 2015-06-01 -e 2015-06-07
 ```
 
