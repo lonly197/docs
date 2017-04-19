@@ -1,4 +1,4 @@
-# Ubuntu 安装Hadoop 2.7
+# Ubuntu 安装Hadoop 2.7 on Yarn
 
 > Ubuntu版本：14.14
 > Hadoop 2.7
@@ -47,7 +47,7 @@
 # cd /opt/packages
 # wget http://mirrors.sonic.net/apache/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz
 # tar xvzf hadoop-2.7.3.tar.gz
-# ln -sf hadoop-2.7.3 /usr/local/hadoop
+# ln -sf hadoop-2.7.3 /opt/hadoop
 ```
 
 ### 配置
@@ -65,7 +65,7 @@
 ```XML
 #HADOOP VARIABLES START
 export JAVA_HOME=/opt/jdk
-export HADOOP_INSTALL=/usr/local/hadoop
+export HADOOP_INSTALL=/opt/hadoop
 export PATH=$PATH:$HADOOP_INSTALL/bin
 export PATH=$PATH:$HADOOP_INSTALL/sbin
 export HADOOP_MAPRED_HOME=$HADOOP_INSTALL
@@ -81,21 +81,21 @@ export HADOOP_OPTS="-Djava.library.path=$HADOOP_INSTALL/lib"
 # source ~/.bashrc
 ```
 
-**配置/usr/local/hadoop/etc/hadoop/hadoop-env.sh**
+**配置hadoop-env.sh**
 编辑hadoop-env.sh
 ```
-# vim /usr/local/hadoop/etc/hadoop/hadoop-env.sh
+# vim /opt/hadoop/etc/hadoop/hadoop-env.sh
 ```
 修改JAVA_HOME配置
 ```XML
 export JAVA_HOME=/opt/jdk
 ```
 
-**配置/usr/local/hadoop/etc/hadoop/core-site.xml**
+**配置core-site.xml**
 编辑core-site.xml
 ```
 # mkdir -p ~/tmp
-# vim /usr/local/hadoop/etc/hadoop/core-site.xml
+# vim /opt/hadoop/etc/hadoop/core-site.xml
 ```
 在_<configuration>_里加入tmp和fs配置
 ```XML
@@ -118,10 +118,10 @@ export JAVA_HOME=/opt/jdk
 </configuration>
 ```
 
-**配置/usr/local/hadoop/etc/hadoop/mapred-site.xml.template**
+**配置mapred-site.xml.template**
 复制mapred-site.xml
 ```
-# cp /usr/local/hadoop/etc/hadoop/mapred-site.xml.template /usr/local/hadoop/etc/hadoop/mapred-site.xml
+# cp /opt/hadoop/etc/hadoop/mapred-site.xml.template /opt/hadoop/etc/hadoop/mapred-site.xml
 ```
 编辑mapred-site.xml
 ```XML
@@ -133,7 +133,7 @@ export JAVA_HOME=/opt/jdk
 </configuration>
 ```
 
-**配置/usr/local/hadoop/etc/hadoop/yarn-site.xml**
+**配置yarn-site.xml**
 编辑yarn-site.xml
 ```XML
 <configuration>
@@ -144,13 +144,17 @@ export JAVA_HOME=/opt/jdk
 </configuration>
 ```
 
-**配置/usr/local/hadoop/etc/hadoop/hdfs-site.xml**
+**配置hdfs-site.xml**
 编辑hdfs-site.xml
 ```XML
 <configuration>
     <property>
         <name>dfs.replication</name>
         <value>1</value>
+    </property>
+    <property>
+        <name>dfs.permissions</name>
+        <value>false</value>
     </property>
 </configuration>
 ```
@@ -163,7 +167,13 @@ export JAVA_HOME=/opt/jdk
 
 ### 测试
 打开WebUI
+```
 http://localhost:50070/
+```
+运行example程序
+```
+# /opt/hadoop/bin/hadoop jar /opt/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar pi 5 10
+```
 
 ### 停止
 ```
