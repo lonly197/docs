@@ -138,6 +138,10 @@ export JAVA_HOME=/opt/jdk
 ```XML
 <configuration>
     <property>
+        <name>yarn.resourcemanager.hostname</name>
+        <value>localhost</value>
+    </property>
+    <property>
         <name>yarn.nodemanager.aux-services</name>
         <value>mapreduce_shuffle</value>
     </property>
@@ -155,6 +159,10 @@ export JAVA_HOME=/opt/jdk
     <property>
         <name>dfs.permissions</name>
         <value>false</value>
+    </property>
+    <property>
+        <name>dfs.secondary.http.address</name>
+        <value>localhost:50090</value>
     </property>
 </configuration>
 ```
