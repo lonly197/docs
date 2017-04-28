@@ -30,7 +30,7 @@
 ## 创建并设置SSH认证
 ```
 # su hadoop
-# ssh-keygen -t rsa -p "" -f ~/.ssh/id_rsa
+# ssh-keygen -t rsa -P "" -f ~/.ssh/id_rsa
 # cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 # chmod 0600 ~/.ssh/authorized_keys
 ```
