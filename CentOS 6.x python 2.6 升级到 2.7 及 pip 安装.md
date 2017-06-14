@@ -5,13 +5,13 @@
 
 <!-- TOC -->
 
-- [CentOS 6.x python 2.6 升级到 2.7 及 pip 安装](#centos-6-x-python-2-6-2-7-pip)
-    - [1、版本查看](#1)
-    - [2、依赖安装](#2)
-    - [3、升级Python](#3-python)
-        - [3.1 安装步骤](#3-1)
-        - [3.2 问题](#3-2)
-    - [4、安装pip](#4-pip)
+- [CentOS 6.x python 2.6 升级到 2.7 及 pip 安装](#centos-6x-python-26-升级到-27-及-pip-安装)
+    - [1、版本查看](#1版本查看)
+    - [2、依赖安装](#2依赖安装)
+    - [3、升级Python](#3升级python)
+        - [3.1 安装步骤](#31-安装步骤)
+        - [3.2 问题](#32-问题)
+    - [4、安装pip](#4安装pip)
 
 <!-- /TOC -->
 
@@ -106,7 +106,7 @@ vi /etc/ld.so.conf
 ## 4、安装pip
 
 下载最新版的pip，然后安装
-```
+```SHELL
 wget https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
 ```
@@ -117,7 +117,7 @@ whereis pip
 ```
 
 找到pip2.7的路径，为其创建软链作为系统默认的启动版本
-```
+```SHELL
 ln -s /usr/local/bin/pip2.7 /usr/bin/pip
 ```
 
