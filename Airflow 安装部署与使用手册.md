@@ -443,7 +443,7 @@ python ~/airflow/dags/tutorial.py
 # print the list of active DAGs
 airflow list_dags
 
-# prints the list of tasks the &quot;tutorial&quot; dag_id
+# prints the list of tasks the "tutorial" dag_id
 airflow list_tasks tutorial
 
 # prints the hierarchy of tasks in the tutorial DAG
