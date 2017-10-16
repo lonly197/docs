@@ -12,6 +12,12 @@ du -h -a -c --max-depth=1
 find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
 ```
 
+### 生成目录结构（HTML）：
+```
+tree -N -H .
+```
+
+
 ### 远程复制文件夹
 ```
 scp -r local_file remote_username@remote_ip:remote_folder
