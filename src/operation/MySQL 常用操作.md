@@ -29,3 +29,6 @@ set global validate_password_policy=0;
 ```SQL
 set global validate_password_length=4;
 ```
+
+____
+[Support By Lonly](mailto:lonly197@gmail.com)

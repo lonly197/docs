@@ -1,24 +1,36 @@
 # Ubuntu 安装Hbase 2.1.1
 
-1、解压
+## 1、解压
 
+```
 tar -zxvf hbase-1.3.0-bin.tar.gz -C /opt/program
 ln -s /opt/program/hbase-1.3.0 /opt/hbase
-2、修改配置文件
+```
 
+## 2、修改配置文件
+
+```
 cd /opt/hbase/conf/
-(1)、hbase-env.sh
+```
 
+### (1)、hbase-env.sh
+
+```
 vi hbase-env.sh
-
+```
+```
 export JAVA_HOME=/opt/java
 //告诉hbase使用外部的zk
 export HBASE_MANAGES_ZK=false
-(2)、hbase-site.xml
+```
 
-复制代码
+### (2)、hbase-site.xml
+
+```
 vi hbase-site.xml
+```
 
+```XML
 <configuration>
     <!-- 指定hbase在HDFS上存储的路径 -->
     <property>
@@ -36,16 +48,22 @@ vi hbase-site.xml
         <value>node00:2181,node01:2181,node02:2181</value>
     </property>
 </configuration>
-复制代码
-(3)、regionservers
+```
 
+### (3)、regionservers
+
+```
 vi regionservers
+```
 
+```
 node01
 node02
-3、启动集群
+```
 
-复制代码
+## 3、启动集群
+
+```
 //启动zookeeper
 zkServer.sh start
 
@@ -57,3 +75,7 @@ start-hbase.sh
 
 //管理页面
 master:16010
+```
+
+____
+[Support By Lonly](mailto:lonly197@gmail.com)

@@ -123,4 +123,6 @@ ln -s /usr/local/bin/pip2.7 /usr/bin/pip
 
 至此，pip安装完毕。
 
+
+____
 [Support By Lonly](mailto:lonly197@gmail.com)

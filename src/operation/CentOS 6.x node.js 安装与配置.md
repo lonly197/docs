@@ -45,3 +45,6 @@ yum install gmp-devel mpfr-devel libmpc-devel
 ../configure --prefix=/usr
 make && make install
 ```
+
+____
+[Support By Lonly](mailto:lonly197@gmail.com)

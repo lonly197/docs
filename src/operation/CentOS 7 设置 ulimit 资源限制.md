@@ -15,3 +15,6 @@ tomcat  hard  nofile  65535
 ```
 
 2. 重启系统，登录到 tomcat 用户，使用 ulimit -a 命令查看配置是否生效
+
+____
+[Support By Lonly](mailto:lonly197@gmail.com)

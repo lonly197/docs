@@ -5,13 +5,13 @@
 
 <!-- TOC -->
 
-- [GitLab 安装及汉化](#gitlab)
-    - [安装](#)
-        - [1、添加安装源](#1)
-        - [2、安装依赖包](#2)
-        - [3、修改Hosts](#3-hosts)
-    - [汉化](#)
-        - [1、安装中文语言包（汉化）](#1)
+- [GitLab 安装及汉化](#gitlab-安装及汉化)
+    - [安装](#安装)
+        - [1、添加安装源](#1添加安装源)
+        - [2、安装依赖包](#2安装依赖包)
+        - [3、修改Hosts](#3修改hosts)
+    - [汉化](#汉化)
+        - [1、安装中文语言包（汉化）](#1安装中文语言包汉化)
 
 <!-- /TOC -->
 
@@ -90,4 +90,5 @@ sudo gitlab-ctl start
 ![](http://omdis1w10.bkt.clouddn.com/gitlab-zh.jpg)
 安装完成。
 
+____
 [Support By Lonly](mailto:lonly197@gmail.com)

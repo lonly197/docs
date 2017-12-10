@@ -4,12 +4,12 @@
 > 
 <!-- TOC -->
 
-- [CentOS 6.x 系统内核升级](#centos-6-x)
-    - [导入 Public Key](#public-key)
-    - [安装 ELRepo](#elrepo)
-    - [升级 Kernel](#kernel)
-    - [更改 Grub](#grub)
-    - [查看 Kernel](#kernel)
+- [CentOS 6.x 系统内核升级](#centos-6x-系统内核升级)
+    - [导入 Public Key](#导入-public-key)
+    - [安装 ELRepo](#安装-elrepo)
+    - [升级 Kernel](#升级-kernel)
+    - [更改 Grub](#更改-grub)
+    - [查看 Kernel](#查看-kernel)
 
 <!-- /TOC -->
 
@@ -52,4 +52,5 @@ vi /etc/grub.conf
 ## 查看 Kernel
 所有操作都执行完毕以后，重启主机，重启后执行 uname -r，查看内核版本号，判断是否升级成功
 
+____
 [Support By Lonly](mailto:lonly197@gmail.com)

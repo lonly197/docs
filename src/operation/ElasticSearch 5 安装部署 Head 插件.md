@@ -10,12 +10,12 @@ http.cors.allow-origin: "*"
 
 <!-- TOC -->
 
-- [ElasticSearch5安装部署Head插件](#elasticsearch5-head)
-    - [第一步，安装git](#git)
-    - [第二步，安装node](#node)
-    - [第三步，安装grunt](#grunt)
-    - [第四步，修改head源码](#head)
-    - [第五步，运行head](#head)
+- [ElasticSearch5安装部署Head插件](#elasticsearch5安装部署head插件)
+    - [第一步，安装git](#第一步安装git)
+    - [第二步，安装node](#第二步安装node)
+    - [第三步，安装grunt](#第三步安装grunt)
+    - [第四步，修改head源码](#第四步修改head源码)
+    - [第五步，运行head](#第五步运行head)
 
 <!-- /TOC -->
 
@@ -118,4 +118,5 @@ grunt server
 访问:target:9100
 这个时候，访问http://xxx:9100就可以访问head插件了.
 
+____
 [Support By Lonly](mailto:lonly197@gmail.com)

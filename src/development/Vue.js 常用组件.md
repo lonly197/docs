@@ -223,3 +223,6 @@ Vue.js的Markdown Editor组件。访问地址：[Vue-SimpleMDE](https://github.c
         <span>{{$t('message.hello')}}</span>
     </template>
 ```
+
+____
+[Support By Lonly](mailto:lonly197@gmail.com)

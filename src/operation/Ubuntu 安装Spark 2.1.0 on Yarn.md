@@ -54,3 +54,6 @@ export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoo
     10
 ```
 求出pi则通过测试。
+
+____
+[Support By Lonly](mailto:lonly197@gmail.com)

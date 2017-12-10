@@ -5,11 +5,11 @@
 
 <!-- TOC -->
 
-- [GitLab Runner安装与部署](#gitlab-runner)
-    - [1、添加 Runner 安装源](#1-runner)
-    - [2、安装gitlab-ci-multi-runner](#2-gitlab-ci-multi-runner)
-    - [3、注册 Runner。](#3-runner)
-    - [4、添加gitlab-ci.yml文件](#4-gitlab-ci-yml)
+- [GitLab Runner安装与部署](#gitlab-runner安装与部署)
+    - [1、添加 Runner 安装源](#1添加-runner-安装源)
+    - [2、安装gitlab-ci-multi-runner](#2安装gitlab-ci-multi-runner)
+    - [3、注册 Runner。](#3注册-runner)
+    - [4、添加gitlab-ci.yml文件](#4添加gitlab-ciyml文件)
 
 <!-- /TOC -->
 
@@ -65,6 +65,7 @@ test-runner                                         Executor=shell Token=eae25e1
 ![](http://omdis1w10.bkt.clouddn.com/gitlab-add-yml.png)
 
 
+____
 [Support By Lonly](mailto:lonly197@gmail.com)
 
 

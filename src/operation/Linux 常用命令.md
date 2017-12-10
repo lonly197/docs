@@ -83,3 +83,6 @@ ps aux | grep demo | awk '{print $2}' | xargs kill -9
 ```
 ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
 ```
+
+____
+[Support By Lonly](mailto:lonly197@gmail.com)

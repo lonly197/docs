@@ -17,3 +17,6 @@ cd && rm -rf /tmp/rar/
 which {un,}rar
 rar -v | head -3
 ```
+
+____
+[Support By Lonly](mailto:lonly197@gmail.com)

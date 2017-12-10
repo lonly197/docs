@@ -7,13 +7,13 @@
 
 <!-- TOC -->
 
-- [在CentOS 6.x 上安装Dockers1.7](#centos-6-x-dockers1-7)
-    - [禁用selinux](#selinux)
-    - [安装 Fedora EPEL](#fedora-epel)
-    - [检查内核版本](#)
-    - [安装 docker-io](#docker-io)
-    - [启动试运行](#)
-    - [配置 Docker 加速器](#docker)
+- [在CentOS 6.x 上安装Dockers1.7](#在centos-6x-上安装dockers17)
+    - [禁用selinux](#禁用selinux)
+    - [安装 Fedora EPEL](#安装-fedora-epel)
+    - [检查内核版本](#检查内核版本)
+    - [安装 docker-io](#安装-docker-io)
+    - [启动试运行](#启动试运行)
+    - [配置 Docker 加速器](#配置-docker-加速器)
 
 <!-- /TOC -->
 
@@ -82,6 +82,7 @@ curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://5baf5cd8
 ```
 该脚本可以将 --registry-mirror 加入到你的 Docker 配置文件 /etc/default/docker 中。适用于 Ubuntu14.04、Debian、CentOS6 、CentOS7、Fedora、Arch Linux、openSUSE Leap 42.1，其他版本可能有细微不同。
 
+____
 [Support By Lonly](mailto:lonly197@gmail.com)
 
 

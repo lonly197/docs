@@ -3,14 +3,24 @@
 .grunt
 
 ## Dependency directory
-## Commenting this out is preferred by some people, see
-## https://docs.npmjs.com/misc/faq#should-i-check-my-node_modules-folder-into-git
 node_modules
 
 # Book build output
 _book
 
-# eBook build output
-*.epub
-*.mobi
-*.pdf
+# Visual Studio cache/options directory
+.vs/
+.vscode/
+
+# JetBrains Rider
+.idea/
+
+# DS
+.DS_Store
+
+# Backup file
+*.bak
+
+# Temp
+*.tmp
+tmp

@@ -5,10 +5,10 @@
 
 <!-- TOC -->
 
-- [GitLab 备份与恢复](#gitlab)
-    - [备份配置文件](#)
-    - [备份数据文件](#)
-    - [恢复](#)
+- [GitLab 备份与恢复](#gitlab-备份与恢复)
+    - [备份配置文件](#备份配置文件)
+    - [备份数据文件](#备份数据文件)
+    - [恢复](#恢复)
 
 <!-- /TOC -->
 
@@ -64,4 +64,5 @@ sudo gitlab-ctl start
 sudo gitlab-rake gitlab:check SANITIZE=true
 ```
 
+____
 [Support By Lonly](mailto:lonly197@gmail.com)
