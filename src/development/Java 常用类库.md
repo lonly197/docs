@@ -10,6 +10,7 @@
     - [Spark Framework](#spark-framework)
     - [Sharding-JDBC](#sharding-jdbc)
     - [Eureka](#eureka)
+    - [Jedis](#jedis)
 
 <!-- /TOC -->
 
@@ -157,5 +158,24 @@ Eureka是Netflix开发的服务发现组件，本身是一个基于REST的服务
 Eureka由两个组件组成：Eureka服务器和Eureka客户端。Eureka服务器用作服务注册服务器。Eureka客户端是一个java客户端，用来简化与服务器的交互、作为轮询负载均衡器，并提供服务的故障切换支持。Netflix在其生产环境中使用的是另外的客户端，它提供基于流量、资源利用率以及出错状态的加权负载均衡。
 
 [github](https://github.com/Netflix/eureka)
+
+
+## Jedis
+Jedis是一个Java语言的Redis客户端。
+
+```
+<dependency>
+    <groupId>redis.clients</groupId>
+    <artifactId>jedis</artifactId>
+    <version>2.9.0</version>
+    <type>jar</type>
+    <scope>compile</scope>
+</dependency>
+```
+
+```
+```
+
+
 ____
 [Support By Lonly](mailto:lonly197@gmail.com)
