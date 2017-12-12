@@ -35,7 +35,6 @@ v2tec/watchower
 默认情况下，Watchtower会轮询Dockder Hub注册表查找更新的镜像。你也可以通过在环境变量REPO_USER和REPO_PASS中添加指定注册表证书，来设置Watchtower轮询私有注册表。
 
 访问地址：[Watchtower](http://dwz.cn/65mKVS)
-***
 
 ## docker-gc
 
@@ -70,7 +69,6 @@ spotify/docker-gc
 了解更多docker-gc支持的选项，我推荐阅读docker-gc documentation（http://dwz.cn/65nnWn）。
 
 访问地址：[docker-gc](http://dwz.cn/65mKVS)
-***
 
 ## docker-slim
 
@@ -91,7 +89,6 @@ docker-slim build --http-probe hello-world
 docker-slim对Java、Python、Ruby和Node.js应用都非常友好。
 
 访问地址：[docker-slim](https://github.com/docker-slim/docker-slim)
-***
 
 ## Rocker
 
@@ -142,7 +139,6 @@ rocker build --push -var VERSION=1.0
 ```
 
 访问地址：[docker-slim](http://t.cn/RSYSNYp)
-***
 
 ## ctop
 
@@ -167,6 +163,6 @@ ctop -a
 ```
 
 访问地址：[ctop](http://t.cn/RSYSQuS)
-***
 
+***
 [Support By Lonly](mailto:lonly197@gmail.com)
