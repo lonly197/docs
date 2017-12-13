@@ -43,6 +43,10 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)
 ```
 
+1.保存到main.py文件，运行文件`python3 main.py`；
+
+2.打开URL`http://0.0.0.0:8000`，可以看到网页显示`Hello World`信息。
+
 访问地址：[Sanic](https://github.com/channelcat/sanic)
 
 ## aiohttp
