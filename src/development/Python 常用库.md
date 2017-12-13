@@ -5,6 +5,7 @@
 - [Python 常用库](#python-常用库)
     - [Sanic](#sanic)
     - [aiohttp](#aiohttp)
+    - [SnakeViz](#snakeviz)
 
 <!-- /TOC -->
 
@@ -105,6 +106,34 @@ web.run_app(app)
 ```
 
 访问地址：[aiohttp](https://github.com/aio-libs/aiohttp/)
+
+## SnakeViz
+
+> SnakeViz是一个基于浏览器的图形浏览器，用于Python的cProfile模块的输出。它会把函数的运行情况以Html的形式展示出来,以便于性能分析。
+
+SnakeViz是一个非常好的工具来检查一个python程序，并找出当一个函数被调用时发生了什么。
+
+**安装**
+
+```
+pip install snakeviz
+```
+
+**使用**
+
+如果您生成了一个名为program.prof的配置文件，您可以从命令行启动SnakeViz：
+
+```
+snakeviz program.prof
+```
+
+您可以在命令行使用cProfile模块为脚本创建配置文件：
+
+```
+python -m cProfile -o program.prof my_program.py
+```
+
+访问地址：[SnakeViz](https://jiffyclub.github.io/snakeviz/)
 
 ___
 [Support By Lonly](mailto:lonly197@gmail.com)
