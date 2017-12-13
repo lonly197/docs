@@ -4,6 +4,7 @@
 
 - [Python 常用库](#python-常用库)
     - [Sanic](#sanic)
+    - [aiohttp](#aiohttp)
 
 <!-- /TOC -->
 
@@ -43,6 +44,67 @@ if __name__ == "__main__":
 
 访问地址：[Sanic](https://github.com/channelcat/sanic)
 
+## aiohttp
+
+> 用于Python3.5+和asyncio的异步HTTP客户端/服务器
+
+**安装**
+
+```
+pip install aiohttp
+```
+
+您可能希望安装可选的cchardet库作为chardet的更快替代:
+
+```
+pip install cchardet
+```
+
+为了加速客户端API的DNS解析，您也可以安装aiodns。强烈建议使用此选项：
+
+```
+pip install aiodns
+```
+
+**使用**
+
+客户端示例代码：
+```python
+import aiohttp
+import asyncio
+import async_timeout
+
+async def fetch(session, url):
+    with async_timeout.timeout(10):
+        async with session.get(url) as response:
+            return await response.text()
+
+async def main():
+    async with aiohttp.ClientSession() as session:
+        html = await fetch(session, 'http://python.org')
+        print(html)
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(main())
+```
+
+服务端示例代码：
+```python
+from aiohttp import web
+
+async def handle(request):
+    name = request.match_info.get('name', "Anonymous")
+    text = "Hello, " + name
+    return web.Response(text=text)
+
+app = web.Application()
+app.router.add_get('/', handle)
+app.router.add_get('/{name}', handle)
+
+web.run_app(app)
+```
+
+访问地址：[aiohttp](https://github.com/aio-libs/aiohttp/)
 
 ___
 [Support By Lonly](mailto:lonly197@gmail.com)
